@@ -113,7 +113,11 @@ app.post('/api/products/', async (req, res) => {
 
     product.overallScore = (product.q1 + product.q2 + product.q3 + product.q4 + product.q5);
 
-    const query2 = await pool.query(`UPDATE products SET jsondata = '${JSON.stringify(product)}' WHERE upc = '${upc}'`);
+    let newProductString = JSON.stringify(product);
+    newProductString = newProductString.replaceAll(`'`, `''`)
+    console.log(newProductString);
+
+    const query2 = await pool.query(`UPDATE products SET jsondata = '${newProductString}' WHERE upc = '${upc}'`);
 
     res.status(201).json({
         name: product.name,
