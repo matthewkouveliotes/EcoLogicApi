@@ -96,10 +96,10 @@ app.post('/api/products/', async (req, res) => {
     const q3 = parseInt(req.body.q3);
     const q4 = parseInt(req.body.q4);
     const q5 = parseInt(req.body.q5);
-    console.log(upc);
+
 
     const q = await pool.query(`SELECT * FROM products WHERE upc = '${upc}'`)
-    console.log(q);
+
     const json = JSON.parse(q.rows[0].jsondata);
     let product = Object.assign(new ProductClass(), json);
 
