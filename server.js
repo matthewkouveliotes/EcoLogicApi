@@ -35,6 +35,10 @@ const pool = new Pool({
     host: 'dpg-d5lt2fur433s73dii6sg-a',
     database: 'ecologic',
     password: 'xHGvUalX4fysBFb3DYtFOARcELFaan0V',
+    connectionString: "postgresql://client:xHGvUalX4fysBFb3DYtFOARcELFaan0V@dpg-d5lt2fur433s73dii6sg-a/egologic",
+    ssl: {
+        rejectUnauthorized: false // Required for Render's default SSL configuration
+    },
     port: 5432,
 });
 
