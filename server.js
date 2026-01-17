@@ -71,7 +71,7 @@ app.get('/api/products/', async (req, res) => {
     }
 
     const q = await pool.query(`SELECT * FROM products WHERE upc = '${upc}'`);
-
+    console.log(q);
     const json = JSON.parse(q.rows[0].jsondata);
 
 
