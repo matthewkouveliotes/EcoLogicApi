@@ -51,7 +51,7 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 app.get('/api/products/', async (req, res) => {
-    const upc = req.query.upcCode;
+    const upc = req.query.upc;
     const count = await pool.query(`SELECT COUNT(*) AS count FROM products WHERE upc = '${upc}'`);
     const trueCount = count.rows[0].count;
 
@@ -90,7 +90,7 @@ app.get('/api/products/', async (req, res) => {
 })
 
 app.post('/api/products/', async (req, res) => {
-    const upc = req.query.upcCode;
+    const upc = req.query.upc;
     const q1 = parseInt(req.body.q1);
     const q2 = parseInt(req.body.q2);
     const q3 = parseInt(req.body.q3);
