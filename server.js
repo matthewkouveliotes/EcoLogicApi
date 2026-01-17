@@ -32,7 +32,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
     user: 'client',
-    host: 'postgresql://client:xHGvUalX4fysBFb3DYtFOARcELFaan0V@dpg-d5lt2fur433s73dii6sg-a/egologic',
+    host: 'dpg-d5lt2fur433s73dii6sg-a',
     database: 'ecologic',
     password: 'xHGvUalX4fysBFb3DYtFOARcELFaan0V',
     port: 5432,
