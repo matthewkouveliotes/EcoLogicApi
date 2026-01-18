@@ -74,7 +74,7 @@ app.get('/api/products/', async (req, res) => {
 
     const json = JSON.parse(q.rows[0].jsondata);
 
-
+    console.log(json);
 
     res.status(200).json({
         name: json.name,
