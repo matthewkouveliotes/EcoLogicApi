@@ -79,11 +79,11 @@ app.get('/api/products/', async (req, res) => {
     res.status(200).json({
         name: json.name,
         upc: json.upc,
-        q1: json.q1/json.totalSurveys,
-        q2: json.q2/json.totalSurveys,
-        q3: json.q3/json.totalSurveys,
-        q4: json.q4/json.totalSurveys,
-        q5: json.q5/json.totalSurveys,
+        q1: json.q1 === 0? 0 : json.q1/json.totalSurveys,
+        q2: json.q2 === 0? 0 : json.q2/json.totalSurveys,
+        q3: json.q3 === 0? 0 : json.q3/json.totalSurveys,
+        q4: json.q4 === 0? 0 : json.q4/json.totalSurveys,
+        q5: json.q5 === 0? 0 : json.q5/json.totalSurveys,
         totalSurveys: json.totalSurveys,
         overallScore: json.overallScore,
     });
