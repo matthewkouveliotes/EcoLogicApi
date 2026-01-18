@@ -111,7 +111,7 @@ app.post('/api/products/', async (req, res) => {
     product.q4 = (product.q4 + q4);
     product.q5 = (product.q5 + q5)
 
-    product.overallScore = (product.q1 + product.q2 + product.q3 + product.q4 + product.q5)/totalSurveys;
+    product.overallScore = (product.q1 + product.q2 + product.q3 + product.q4 + product.q5)/product.totalSurveys;
 
     let newProductString = JSON.stringify(product);
     newProductString = newProductString.replaceAll(`'`, `''`)
@@ -122,11 +122,11 @@ app.post('/api/products/', async (req, res) => {
     res.status(201).json({
         name: product.name,
         upc: product.upc,
-        q1: product.q1/totalSurveys,
-        q2: product.q2/totalSurveys,
-        q3: product.q3/totalSurveys,
-        q4: product.q4/totalSurveys,
-        q5: product.q5/totalSurveys,
+        q1: product.q1/product.totalSurveys,
+        q2: product.q2/product.totalSurveys,
+        q3: product.q3/product.totalSurveys,
+        q4: product.q4/product.totalSurveys,
+        q5: product.q5/product.totalSurveys,
         totalSurveys: product.totalSurveys,
         overallScore: product.overallScore,
     })
