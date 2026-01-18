@@ -55,7 +55,7 @@ app.get('/api/products/', async (req, res) => {
     const count = await pool.query(`SELECT COUNT(*) AS count FROM products WHERE upc = '${upc}'`);
     const trueCount = count.rows[0].count;
 
-    if(trueCount === 0 || trueCount === "0") {
+    if(trueCount === 0) {
         let response;
         const req = await fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=${upc}`)
         .then(res => res.json())
